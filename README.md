@@ -19,17 +19,9 @@
 
 > Adicione suas screenshots na pasta `assets/screenshots/` e substitua os links abaixo.
 
-<div align="center">
 
-| Login | Feed | Detalhes |
-|:---:|:---:|:---:|
-| <img src="assets/screenshots/login.png" width="200" alt="Tela de Login"/> | <img src="assets/screenshots/feed.png" width="200" alt="Feed de Filmes"/> | <img src="assets/screenshots/detalhes.png" width="200" alt="Detalhes do Filme"/> |
+https://github.com/user-attachments/assets/364d4fe0-5364-4020-9e50-24fb715e8789
 
-| Busca | Perfil | Avaliação |
-|:---:|:---:|:---:|
-| <img src="assets/screenshots/busca.png" width="200" alt="Busca"/> | <img src="assets/screenshots/perfil.png" width="200" alt="Perfil"/> | <img src="assets/screenshots/avaliacao.png" width="200" alt="Avaliação"/> |
-
-</div>
 
 ---
 
