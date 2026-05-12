@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Perfis de usuário ───────────────────────────────────────────────────
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.keys().hasOnly(['nome', 'email', 'createdAt', 'avatarUrl'])
+                    && request.resource.data.nome is string
+                    && request.resource.data.email is string;
+      allow update: if request.auth != null
+                    && request.auth.uid == userId
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['email', 'createdAt']);
+      allow delete: if false;
+    }
+
+    // ─── Avaliações de filmes por usuário ────────────────────────────────────
+    // Apenas o próprio usuário autenticado pode ler/escrever suas avaliações
+    match /usuarios/{userId}/avaliados/{filmeId} {
+      allow read, delete: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null
+                             && request.auth.uid == userId
+                             // Valida campos obrigatórios e tipos
+                             && request.resource.data.id is int
+                             && request.resource.data.title is string
+                             && request.resource.data.title.size() > 0
+                             && request.resource.data.minhaNotaId is int
+                             && request.resource.data.minhaNotaId >= 1
+                             && request.resource.data.minhaNotaId <= 5;
+    }
+
+    // ─── Posts / Feed ────────────────────────────────────────────────────────
+    match /posts/{postId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+                    && request.resource.data.authorId == request.auth.uid
+                    && request.resource.data.keys().hasOnly(['authorId', 'conteudo', 'createdAt', 'mediaUrl'])
+                    && request.resource.data.conteudo is string
+                    && request.resource.data.conteudo.size() > 0
+                    && request.resource.data.conteudo.size() <= 500;
+      allow update: if request.auth != null
+                    && resource.data.authorId == request.auth.uid
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['authorId', 'createdAt']);
+      allow delete: if request.auth != null
+                    && resource.data.authorId == request.auth.uid;
+    }
+
+    // ─── Bloqueio padrão ─────────────────────────────────────────────────────
+    // Nega acesso a qualquer coleção não mapeada acima
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -30,8 +30,13 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files — NUNCA commitar credenciais
+.env
+.env.local
+.env.production
+.env.staging
 .env*.local
+# .env.example deve ser commitado (sem valores reais)
 
 # typescript
 *.tsbuildinfo
@@ -39,3 +44,12 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Firebase CLI
+firebase-debug.log
+.firebaserc
+
+# EAS Build — credenciais nativas (geradas automaticamente)
+google-services.json
+GoogleService-Info.plist
+serviceAccountKey.json
