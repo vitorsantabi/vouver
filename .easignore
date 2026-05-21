@@ -1,0 +1,61 @@
+# ─── .easignore ──────────────────────────────────────────────────────────────
+# Cópia do .gitignore, MAS sem ignorar .env
+# O EAS Build usa este arquivo (quando presente) em vez do .gitignore
+# para decidir quais arquivos enviar para o servidor de build.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# ⚠️ NÃO ignorar .env aqui — o EAS Build precisa das variáveis!
+# .env            ← REMOVIDO de propósito
+.env.local
+.env.production
+.env.staging
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
+
+# Firebase CLI
+firebase-debug.log
+.firebaserc
+
+# EAS Build — credenciais nativas (geradas automaticamente)
+google-services.json
+GoogleService-Info.plist
+serviceAccountKey.json
+
+# Git
+.git/

@@ -1,16 +1,38 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import React from 'react';
-import { useColorScheme } from 'react-native';
+import "react-native-gesture-handler";
+import * as SplashScreen from "expo-splash-screen";
+import { Stack } from "expo-router";
+import { useEffect } from "react";
+import { AvaliacoesProvider } from "../context/AvaliacoesContext";
+import { ListasProvider } from "../context/ListasContext";
+import { usePoppins } from "../utils/fonts";
+import { Cores } from "../utils/cores";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function Layout() {
+  const [fontsLoaded, fontError] = usePoppins();
+
+  useEffect(() => {
+    if (fontsLoaded || fontError) SplashScreen.hideAsync();
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) return null;
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <AvaliacoesProvider>
+      <ListasProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            animation: "fade",
+            contentStyle: { backgroundColor: Cores.fundo },
+          }}
+        >
+          <Stack.Screen name="index" />
+          <Stack.Screen name="cadastro" />
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </ListasProvider>
+    </AvaliacoesProvider>
   );
 }
