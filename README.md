@@ -15,6 +15,11 @@ O **VouVer** oferece uma experiência completa para quem quer explorar filmes de
 - Integração com API de filmes (TMDB)
 
 ---
+## ✨ Video do Projeto
+
+
+https://github.com/user-attachments/assets/66a49cac-fb70-4c89-8d2f-30b604aafa8c
+
 
 ## ✨ Recursos principais
 
