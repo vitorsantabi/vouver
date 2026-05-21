@@ -1,31 +1,48 @@
-# VouVer
+# VouVer 🎬
 
-Aplicativo mobile em Expo/React Native para descobrir filmes, gerenciar listas e acessar perfil de usuário.
+Um aplicativo mobile em **Expo + React Native** para descobrir filmes, gerenciar listas personalizadas e acessar perfis de usuário.
 
-## Sobre
+---
 
-Este projeto é uma versão do app **VouVer**, com navegação por abas, busca de filmes, listas personalizadas e autenticação integrada.
+## 🚀 Visão geral
 
-Principais recursos:
+O **VouVer** oferece uma experiência completa para quem quer explorar filmes de forma prática:
 
-- Descoberta de filmes com cards e detalhes
-- Busca por filmes e exibição de categorias
-- Listas de filmes salvas pelo usuário
-- Cadastro e perfil de usuário
-- Integração com Firebase e TMDB
+- Descoberta de lançamentos e populares
+- Busca de filmes com cartões informativos
+- Listas salvas e organizadas pelo usuário
+- Cadastro e login com Firebase
+- Integração com API de filmes (TMDB)
 
-## Estrutura do projeto
+---
 
-- `src/app/` - páginas e rotas do Expo Router
-- `src/components/` - componentes de interface reutilizáveis
-- `src/context/` - contexto de avaliações e listas
-- `src/hooks/` - hooks personalizados
-- `src/services/` - lógica de autenticação e listas
-- `src/lib/` - integração com Firebase e API de filmes
-- `src/types/` - tipos TypeScript do app
-- `src/utils/` - utilitários de estilo e fontes
+## ✨ Recursos principais
 
-## Instalação
+| Função                   | Descrição                                                |
+| ------------------------ | -------------------------------------------------------- |
+| 🎥 Tela de descoberta    | Página inicial com filmes em destaque e recomendações    |
+| 🔍 Busca de filmes       | Pesquisa rápida por títulos e visualização de resultados |
+| 📚 Listas personalizadas | Crie, salve e gerencie suas listas de filmes             |
+| 👤 Perfil do usuário     | Cadastro, login e detalhes do usuário                    |
+| ☁️ Firebase              | Autenticação e persistência de dados no Firebase         |
+| 🧠 API TMDB              | Dados de filmes carregados pela API externa              |
+
+---
+
+## 📁 Estrutura do projeto
+
+- `src/app/` — páginas e rotas do Expo Router
+- `src/components/` — componentes de interface reutilizáveis
+- `src/context/` — contexto de avaliações e listas
+- `src/hooks/` — hooks personalizados
+- `src/services/` — lógica de autenticação, listas e estado
+- `src/lib/` — integração com Firebase e TMDB
+- `src/types/` — tipos TypeScript do app
+- `src/utils/` — utilitários de estilo e fontes
+
+---
+
+## ⚙️ Instalação e execução
 
 Instale as dependências:
 
@@ -33,15 +50,13 @@ Instale as dependências:
 npm install
 ```
 
-## Executando localmente
-
-Inicie o servidor Expo:
+Execute o app:
 
 ```bash
 npm start
 ```
 
-Você também pode executar diretamente em plataforma:
+Plataformas disponíveis:
 
 ```bash
 npm run android
@@ -49,7 +64,9 @@ npm run ios
 npm run web
 ```
 
-## Scripts úteis
+---
+
+## 🧪 Scripts úteis
 
 - `npm start` — inicia o Expo DevTools
 - `npm run android` — executa no emulador Android
@@ -57,12 +74,34 @@ npm run web
 - `npm run web` — executa no navegador
 - `npm run lint` — verifica o código com ESLint
 
-## Configuração adicional
+---
 
-- Crie um arquivo `.env` a partir de `.env.example` para armazenar chaves e variáveis de ambiente.
-- Verifique as configurações do Firebase em `src/lib/firebase.ts`.
-- Ajuste a chave da API TMDB em `src/lib/tmdb.ts` conforme necessário.
+## 🔧 Configuração adicional
 
-## Observações
+1. Crie um arquivo `.env` a partir de `.env.example`.
+2. Atualize a chave da API TMDB em `src/lib/tmdb.ts`.
+3. Verifique as credenciais do Firebase em `src/lib/firebase.ts`.
 
-Este projeto usa o Expo SDK 55 e o Expo Router para navegação baseada em arquivos.
+> Nota: O `.env.example` oferece a estrutura das variáveis necessárias, mas não contém valores reais.
+
+---
+
+## 📌 Observações
+
+- Este projeto está baseado no **Expo SDK 55**.
+- Utiliza o **Expo Router** para navegação por arquivos.
+- A pasta principal de desenvolvimento é `src/app/`.
+
+---
+
+## 💡 Como contribuir
+
+1. Faça um fork do repositório.
+2. Crie uma branch com a sua melhoria.
+3. Abra um pull request explicando a mudança.
+
+---
+
+## 📞 Contato
+
+Se quiser, posso ajudar a adicionar mais detalhes no README ou documentar cada tela do app.
